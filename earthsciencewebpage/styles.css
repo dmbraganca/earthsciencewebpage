@@ -1,3 +1,9 @@
+/*
+  South African Flag palette:
+  Green  #007A4D  |  Gold  #FFB81C  |  Red  #DE3831
+  Blue   #002395  |  Black #000000  |  White #ffffff
+*/
+
 * {
   margin: 0;
   padding: 0;
@@ -7,17 +13,32 @@
 body {
   font-family: Georgia, 'Times New Roman', serif;
   color: #1e1e1e;
-  background-color: #f5f5f0;
+  background-color: #f8f7f4;
   line-height: 1.7;
 }
 
 /* Navigation */
 nav {
-  background-color: #007749;
+  background-color: #007A4D;
   padding: 0 2rem;
   position: sticky;
   top: 0;
   z-index: 100;
+}
+
+/* Six-color flag stripe below nav */
+nav::after {
+  content: '';
+  display: block;
+  height: 5px;
+  background: linear-gradient(to right,
+    #000000 0%    16.67%,
+    #FFB81C 16.67% 33.33%,
+    #007A4D 33.33% 50%,
+    #ffffff 50%    66.67%,
+    #DE3831 66.67% 83.33%,
+    #002395 83.33% 100%
+  );
 }
 
 nav ul {
@@ -40,14 +61,13 @@ nav ul li a {
 
 nav ul li a:hover,
 nav ul li a.active {
-  background-color: #4a90a4;
+  background-color: #DE3831;
   color: #fff;
 }
 
 /* Site header */
 .site-header {
   background-color: #FFB81C;
-  color: #fff;
   text-align: center;
   padding: 0.6rem 1rem 0.8rem;
 }
@@ -58,6 +78,7 @@ nav ul li a.active {
   text-transform: uppercase;
   color: #000000;
   font-family: Arial, sans-serif;
+  font-weight: bold;
 }
 
 /* Hero */
@@ -66,17 +87,17 @@ nav ul li a.active {
   height: 420px;
   object-fit: cover;
   display: block;
-  background-color: #FFFFFF;
+  background-color: #007A4D;
 }
 
 .hero-placeholder {
   width: 100%;
   height: 420px;
-  background: linear-gradient(160deg, #1a3a5c 0%, #4a90a4 60%, #8ab8c8 100%);
+  background: linear-gradient(160deg, #002395 0%, #007A4D 50%, #DE3831 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #c8e0ec;
+  color: #ffffff;
   font-family: Arial, sans-serif;
   font-size: 0.9rem;
   letter-spacing: 0.05em;
@@ -84,7 +105,7 @@ nav ul li a.active {
 
 /* Page title banner */
 .page-banner {
-  background-color: #007749;
+  background-color: #002395;
   color: #fff;
   padding: 2.5rem 2rem 2rem;
   text-align: center;
@@ -98,7 +119,7 @@ nav ul li a.active {
 }
 
 .page-banner .subtitle {
-  color: #a8cce0;
+  color: #FFB81C;
   font-family: Arial, sans-serif;
   font-size: 0.95rem;
   margin-top: 0.4rem;
@@ -111,23 +132,31 @@ main {
   padding: 2.5rem 2rem 4rem;
 }
 
+a {
+  color: #002395;
+}
+
+a:hover {
+  color: #DE3831;
+}
+
 h1 {
   font-size: 2rem;
-  color: #1a3a5c;
+  color: #007A4D;
   margin-bottom: 0.5rem;
 }
 
 h2 {
   font-size: 1.45rem;
-  color: #2b5278;
+  color: #002395;
   margin: 2rem 0 0.7rem;
   padding-bottom: 0.3rem;
-  border-bottom: 1px solid #c0d4e0;
+  border-bottom: 2px solid #FFB81C;
 }
 
 h3 {
   font-size: 1.1rem;
-  color: #1a3a5c;
+  color: #007A4D;
   margin: 1.4rem 0 0.4rem;
 }
 
@@ -145,18 +174,24 @@ p {
 
 .info-card {
   background-color: #fff;
-  border: 1px solid #d0dfe8;
-  border-top: 3px solid #4a90a4;
+  border: 1px solid #e0e0e0;
+  border-top: 4px solid #007A4D;
   padding: 1.4rem 1.5rem;
   border-radius: 2px;
 }
+
+/* Each card gets a different flag color accent */
+.info-card:nth-child(1) { border-top-color: #007A4D; }
+.info-card:nth-child(2) { border-top-color: #DE3831; }
+.info-card:nth-child(3) { border-top-color: #002395; }
+.info-card:nth-child(4) { border-top-color: #FFB81C; }
 
 .info-card h2 {
   font-size: 1.1rem;
   margin: 0 0 0.7rem;
   border: none;
   padding: 0;
-  color: #1a3a5c;
+  color: #1e1e1e;
 }
 
 .info-card p {
@@ -164,14 +199,14 @@ p {
   margin-bottom: 0;
 }
 
-/* Placeholder sections for Earth Processes pages */
+/* Placeholder sections */
 .placeholder-box {
-  border: 2px dashed #b0c8d8;
-  background-color: #f0f6fa;
+  border: 2px dashed #FFB81C;
+  background-color: #fff9ee;
   border-radius: 3px;
   padding: 3rem 2rem;
   text-align: center;
-  color: #6a90a8;
+  color: #7a5a00;
   font-family: Arial, sans-serif;
   font-size: 0.9rem;
   margin-top: 2rem;
@@ -185,7 +220,7 @@ p {
 
 .references-list li {
   padding: 0.6rem 0;
-  border-bottom: 1px solid #e0e8ee;
+  border-bottom: 1px solid #e0e0e0;
   font-size: 0.95rem;
   padding-left: 2rem;
   text-indent: -2rem;
@@ -197,12 +232,12 @@ p {
 
 /* About page quote block */
 blockquote {
-  border-left: 4px solid #4a90a4;
+  border-left: 4px solid #FFB81C;
   margin: 1.5rem 0;
   padding: 0.8rem 1.5rem;
-  background-color: #eef5f9;
+  background-color: #fff9ee;
   font-style: italic;
-  color: #3a5a70;
+  color: #3a3a3a;
 }
 
 blockquote cite {
@@ -210,13 +245,13 @@ blockquote cite {
   margin-top: 0.5rem;
   font-style: normal;
   font-size: 0.9rem;
-  color: #5a7a8a;
+  color: #666;
 }
 
 /* Footer */
 footer {
-  background-color: #FFB81C;
-  color: #000000;
+  background-color: #1e1e1e;
+  color: #FFB81C;
   text-align: center;
   padding: 1.2rem;
   font-family: Arial, sans-serif;
