@@ -29,7 +29,7 @@ nav ul {
 
 nav ul li a {
   display: block;
-  color: #dce8f0;
+  color: #ffffff;
   text-decoration: none;
   padding: 1rem 1.1rem;
   font-family: Arial, sans-serif;
@@ -84,7 +84,7 @@ nav ul li a.active {
 
 /* Page title banner */
 .page-banner {
-  background-color: #E03C31;
+  background-color: #007749;
   color: #fff;
   padding: 2.5rem 2rem 2rem;
   text-align: center;
