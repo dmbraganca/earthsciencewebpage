@@ -1,275 +1,490 @@
-/*
-  South African Flag palette:
-  Green  #007A4D  |  Gold  #FFB81C  |  Red  #DE3831
-  Blue   #002395  |  Black #000000  |  White #ffffff
-*/
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* ─────────────────────────────────────────────────────
+   South African Flag palette
+   Green #007A4D | Gold #FFB81C | Red #DE3831
+   Blue  #002395 | Black #000000 | White #ffffff
+───────────────────────────────────────────────────── */
+:root {
+  --green:  #007A4D;
+  --gold:   #FFB81C;
+  --red:    #DE3831;
+  --blue:   #002395;
+  --black:  #000000;
+  --white:  #ffffff;
+  --bg:     #f7f6f2;
+  --text:   #1a1a1a;
+  --muted:  #5a5a5a;
+  --border: #e0d9d0;
 }
 
+/* ─── Reset ──────────────────────────────────────── */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* ─── Base ───────────────────────────────────────── */
 body {
   font-family: Georgia, 'Times New Roman', serif;
-  color: #1e1e1e;
-  background-color: #f8f7f4;
-  line-height: 1.7;
+  color: var(--text);
+  background-color: var(--bg);
+  line-height: 1.8;
 }
 
-/* Navigation */
-nav {
-  background-color: #007A4D;
-  padding: 0 2rem;
+a { color: var(--blue); text-decoration: none; }
+a:hover { color: var(--red); text-decoration: underline; }
+
+/* ─── Site Header (unified brand + nav) ─────────── */
+.site-header {
+  background-color: var(--green);
   position: sticky;
   top: 0;
   z-index: 100;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.3);
 }
 
-/* Six-color flag stripe below nav */
-nav::after {
-  content: '';
-  display: block;
-  height: 5px;
-  background: linear-gradient(to right,
-    #000000 0%    16.67%,
-    #FFB81C 16.67% 33.33%,
-    #007A4D 33.33% 50%,
-    #ffffff 50%    66.67%,
-    #DE3831 66.67% 83.33%,
-    #002395 83.33% 100%
-  );
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  min-height: 58px;
 }
 
+.header-brand {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0.5rem 0;
+  flex-shrink: 0;
+  margin-right: 1.5rem;
+}
+
+.header-country {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--gold);
+  font-family: Georgia, serif;
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+}
+
+.header-course {
+  font-size: 0.68rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-family: Arial, sans-serif;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  margin-top: 0.15rem;
+}
+
+/* ─── Navigation ─────────────────────────────────── */
 nav ul {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-  gap: 0;
 }
 
 nav ul li a {
   display: block;
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.88);
   text-decoration: none;
-  padding: 1rem 1.1rem;
+  padding: 1.1rem 0.9rem;
   font-family: Arial, sans-serif;
-  font-size: 0.9rem;
-  letter-spacing: 0.03em;
-  transition: background-color 0.2s, color 0.2s;
-}
-
-nav ul li a:hover,
-nav ul li a.active {
-  background-color: #DE3831;
-  color: #fff;
-}
-
-/* Site header */
-.site-header {
-  background-color: #FFB81C;
-  text-align: center;
-  padding: 0.6rem 1rem 0.8rem;
-}
-
-.site-header .site-title {
-  font-size: 0.85rem;
-  letter-spacing: 0.12em;
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: #000000;
-  font-family: Arial, sans-serif;
-  font-weight: bold;
+  font-weight: 600;
+  transition: background-color 0.18s, color 0.18s;
+  border-bottom: 3px solid transparent;
+  white-space: nowrap;
 }
 
-/* Hero */
+nav ul li a:hover {
+  background-color: var(--red);
+  color: var(--white);
+  text-decoration: none;
+  border-bottom-color: transparent;
+}
+
+nav ul li a.active {
+  color: var(--gold);
+  border-bottom-color: var(--gold);
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* ─── Flag stripe ────────────────────────────────── */
+.flag-stripe {
+  height: 5px;
+  background: linear-gradient(to right,
+    #000000   0%     16.67%,
+    #FFB81C   16.67% 33.33%,
+    #007A4D   33.33% 50%,
+    #ffffff   50%    66.67%,
+    #DE3831   66.67% 83.33%,
+    #002395   83.33% 100%
+  );
+}
+
+/* ─── Hero (index page) ──────────────────────────── */
+.hero-wrapper {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--blue);
+}
+
 .hero {
   width: 100%;
-  height: 420px;
+  height: 500px;
   object-fit: cover;
   display: block;
-  background-color: #007A4D;
 }
 
-.hero-placeholder {
-  width: 100%;
-  height: 420px;
-  background: linear-gradient(160deg, #002395 0%, #007A4D 50%, #DE3831 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #ffffff;
+.hero-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 6rem 3rem 2.8rem;
+  background: linear-gradient(
+    to top,
+    rgba(0, 35, 149, 0.92) 0%,
+    rgba(0, 35, 149, 0.55) 50%,
+    transparent 100%
+  );
+}
+
+.hero-caption h1 {
+  font-size: 3.4rem;
+  font-weight: normal;
+  color: var(--white);
+  letter-spacing: 0.07em;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.45);
+  margin-bottom: 0;
+  line-height: 1.1;
+}
+
+.hero-caption .subtitle {
+  color: var(--gold);
   font-family: Arial, sans-serif;
-  font-size: 0.9rem;
-  letter-spacing: 0.05em;
+  font-size: 0.82rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-top: 0.5rem;
 }
 
-/* Page title banner */
+/* ─── Page Banner (non-index pages) ─────────────── */
 .page-banner {
-  background-color: #002395;
-  color: #fff;
-  padding: 2.5rem 2rem 2rem;
+  background-color: var(--blue);
+  color: var(--white);
+  padding: 3rem 2rem 2.5rem;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-banner::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 7px;
+  background: linear-gradient(
+    to bottom,
+    var(--green)  0%,
+    var(--gold)  50%,
+    var(--red)  100%
+  );
+}
+
+.page-banner::after {
+  content: '';
+  position: absolute;
+  right: 0; top: 0; bottom: 0;
+  width: 7px;
+  background: linear-gradient(
+    to bottom,
+    var(--red)   0%,
+    var(--gold)  50%,
+    var(--green) 100%
+  );
 }
 
 .page-banner h1 {
-  font-size: 2.2rem;
+  font-size: 2.3rem;
   font-weight: normal;
   letter-spacing: 0.04em;
-  color: #ffffff;
+  color: var(--white);
 }
 
 .page-banner .subtitle {
-  color: #FFB81C;
+  color: var(--gold);
   font-family: Arial, sans-serif;
-  font-size: 0.95rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
   margin-top: 0.4rem;
 }
 
-/* Main content */
+/* ─── Main content ───────────────────────────────── */
 main {
-  max-width: 860px;
+  max-width: 900px;
   margin: 0 auto;
-  padding: 2.5rem 2rem 4rem;
+  padding: 3rem 2rem 5rem;
 }
 
-a {
-  color: #002395;
-}
-
-a:hover {
-  color: #DE3831;
-}
+main > *:first-child { margin-top: 0; }
 
 h1 {
   font-size: 2rem;
-  color: #007A4D;
+  color: var(--green);
   margin-bottom: 0.5rem;
 }
 
 h2 {
-  font-size: 1.45rem;
-  color: #002395;
-  margin: 2rem 0 0.7rem;
-  padding-bottom: 0.3rem;
-  border-bottom: 2px solid #FFB81C;
+  font-size: 1.4rem;
+  color: var(--blue);
+  margin: 2.5rem 0 0.8rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 3px solid var(--gold);
 }
 
 h3 {
-  font-size: 1.1rem;
-  color: #007A4D;
-  margin: 1.4rem 0 0.4rem;
+  font-size: 1.05rem;
+  color: var(--green);
+  margin: 1.5rem 0 0.4rem;
 }
 
-p {
-  margin-bottom: 1rem;
-}
+p { margin-bottom: 1rem; }
 
-/* Info grid for home page */
+/* ─── Info grid (index) ──────────────────────────── */
 .info-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1.8rem;
+  gap: 1.5rem;
   margin-top: 2rem;
 }
 
 .info-card {
-  background-color: #fff;
-  border: 1px solid #e0e0e0;
-  border-top: 4px solid #007A4D;
-  padding: 1.4rem 1.5rem;
-  border-radius: 2px;
+  background-color: var(--white);
+  border-top: 5px solid var(--green);
+  border-radius: 3px;
+  padding: 1.6rem 1.6rem 1.4rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Each card gets a different flag color accent */
-.info-card:nth-child(1) { border-top-color: #007A4D; }
-.info-card:nth-child(2) { border-top-color: #DE3831; }
-.info-card:nth-child(3) { border-top-color: #002395; }
-.info-card:nth-child(4) { border-top-color: #FFB81C; }
+.info-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.info-card:nth-child(1) { border-top-color: var(--green); }
+.info-card:nth-child(2) { border-top-color: var(--red); }
+.info-card:nth-child(3) { border-top-color: var(--blue); }
+.info-card:nth-child(4) { border-top-color: var(--gold); }
 
 .info-card h2 {
-  font-size: 1.1rem;
-  margin: 0 0 0.7rem;
+  font-size: 1.05rem;
+  margin: 0 0 0.6rem;
   border: none;
   padding: 0;
-  color: #1e1e1e;
+  color: var(--text);
 }
 
 .info-card p {
   font-size: 0.95rem;
   margin-bottom: 0;
+  color: var(--muted);
 }
 
-/* Placeholder sections */
-.placeholder-box {
-  border: 2px dashed #FFB81C;
-  background-color: #fff9ee;
-  border-radius: 3px;
-  padding: 3rem 2rem;
+/* ─── Topic navigation (index) ───────────────────── */
+.topic-nav-section {
+  margin-top: 3.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+
+.topic-nav-section > h2 {
   text-align: center;
-  color: #7a5a00;
-  font-family: Arial, sans-serif;
-  font-size: 0.9rem;
-  margin-top: 2rem;
+  margin-top: 0;
+  margin-bottom: 1.6rem;
 }
 
-/* References page */
+.topic-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+}
+
+.topic-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  background: var(--white);
+  border-radius: 3px;
+  padding: 1.6rem 0.7rem;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+  color: var(--blue);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+  border-bottom: 4px solid var(--green);
+  text-decoration: none;
+  transition: transform 0.18s ease, box-shadow 0.18s ease,
+              border-color 0.18s ease, color 0.18s ease;
+  line-height: 1.4;
+}
+
+.topic-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.13);
+  border-bottom-color: var(--red);
+  color: var(--red);
+  text-decoration: none;
+}
+
+.topic-icon {
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--green);
+  transition: color 0.18s ease;
+}
+
+.topic-card:hover .topic-icon {
+  color: var(--red);
+}
+
+/* ─── WIP placeholder ────────────────────────────── */
+.placeholder-box {
+  background-color: var(--white);
+  border-radius: 3px;
+  border-left: 6px solid var(--gold);
+  padding: 4rem 2rem;
+  text-align: center;
+  margin-top: 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.wip-label {
+  display: inline-block;
+  background-color: var(--gold);
+  color: var(--black);
+  font-family: Arial, sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.9rem;
+  border-radius: 2px;
+  margin-bottom: 1rem;
+}
+
+.placeholder-box p {
+  color: var(--muted);
+  font-family: Arial, sans-serif;
+  font-size: 0.92rem;
+  margin-bottom: 0;
+}
+
+/* ─── References ─────────────────────────────────── */
 .references-list {
   list-style: none;
-  margin-top: 1rem;
+  margin-top: 0.6rem;
 }
 
 .references-list li {
-  padding: 0.6rem 0;
-  border-bottom: 1px solid #e0e0e0;
-  font-size: 0.95rem;
-  padding-left: 2rem;
+  padding: 0.7rem 0 0.7rem 2rem;
   text-indent: -2rem;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.92rem;
+  color: var(--muted);
 }
 
-.references-list li:last-child {
-  border-bottom: none;
-}
+.references-list li:last-child { border-bottom: none; }
 
-/* About page quote block */
+/* ─── Blockquote ─────────────────────────────────── */
 blockquote {
-  border-left: 4px solid #FFB81C;
-  margin: 1.5rem 0;
-  padding: 0.8rem 1.5rem;
-  background-color: #fff9ee;
+  border-left: 5px solid var(--gold);
+  margin: 2rem 0;
+  padding: 1.1rem 1.8rem;
+  background: linear-gradient(
+    to right,
+    rgba(255, 184, 28, 0.1) 0%,
+    rgba(255, 184, 28, 0.02) 60%,
+    transparent 100%
+  );
   font-style: italic;
-  color: #3a3a3a;
+  font-size: 1.05rem;
+  color: #333;
+  border-radius: 0 3px 3px 0;
 }
 
 blockquote cite {
   display: block;
-  margin-top: 0.5rem;
+  margin-top: 0.7rem;
   font-style: normal;
-  font-size: 0.9rem;
-  color: #666;
+  font-size: 0.88rem;
+  color: #888;
+  font-family: Arial, sans-serif;
+  letter-spacing: 0.04em;
 }
 
-/* Footer */
+/* ─── Footer ─────────────────────────────────────── */
 footer {
-  background-color: #1e1e1e;
-  color: #FFB81C;
-  text-align: center;
-  padding: 1.2rem;
+  background-color: var(--black);
+  color: var(--gold);
   font-family: Arial, sans-serif;
   font-size: 0.82rem;
+  text-align: center;
 }
 
-/* Responsive */
-@media (max-width: 640px) {
-  .info-grid {
-    grid-template-columns: 1fr;
+.footer-stripe {
+  height: 5px;
+  background: linear-gradient(to right,
+    #000000   0%     16.67%,
+    #FFB81C   16.67% 33.33%,
+    #007A4D   33.33% 50%,
+    #ffffff   50%    66.67%,
+    #DE3831   66.67% 83.33%,
+    #002395   83.33% 100%
+  );
+}
+
+.footer-inner {
+  padding: 1.2rem 2rem;
+  opacity: 0.85;
+}
+
+/* ─── Responsive ─────────────────────────────────── */
+@media (max-width: 880px) {
+  .topic-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 680px) {
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.5rem 1rem;
+    gap: 0.3rem;
   }
+
+  .header-brand { margin-right: 0; }
 
   nav ul li a {
-    padding: 0.75rem 0.75rem;
-    font-size: 0.82rem;
+    padding: 0.7rem 0.6rem;
+    font-size: 0.72rem;
   }
 
-  .page-banner h1 {
-    font-size: 1.6rem;
-  }
+  .hero { height: 360px; }
+
+  .hero-caption h1 { font-size: 2.2rem; }
+
+  .page-banner h1 { font-size: 1.75rem; }
+
+  .info-grid { grid-template-columns: 1fr; }
+
+  .topic-grid { grid-template-columns: repeat(2, 1fr); }
+
+  main { padding: 2rem 1.2rem 4rem; }
 }
