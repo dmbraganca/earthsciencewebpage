@@ -184,12 +184,6 @@ nav ul li a.active {
   position: absolute;
   left: 0; top: 0; bottom: 0;
   width: 7px;
-  background: linear-gradient(
-    to bottom,
-    var(--green)  0%,
-    var(--gold)  50%,
-    var(--red)  100%
-  );
 }
 
 .page-banner::after {
@@ -197,12 +191,6 @@ nav ul li a.active {
   position: absolute;
   right: 0; top: 0; bottom: 0;
   width: 7px;
-  background: linear-gradient(
-    to bottom,
-    var(--red)   0%,
-    var(--gold)  50%,
-    var(--green) 100%
-  );
 }
 
 .page-banner h1 {
