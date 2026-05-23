@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:www.flickr.com)",
+      "WebFetch(domain:commons.wikimedia.org)",
+      "WebFetch(domain:earthobservatory.nasa.gov)",
+      "WebFetch(domain:science.nasa.gov)",
+      "WebFetch(domain:www.britannica.com)",
+      "WebFetch(domain:en.wikipedia.org)",
+      "WebFetch(domain:www.sa-venues.com)",
+      "WebFetch(domain:www.worldatlas.com)"
+    ]
+  }
+}
