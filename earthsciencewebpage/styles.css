@@ -867,6 +867,56 @@ blockquote cite {
 }
 
 /* ══════════════════════════════════════════════════════
+   DATA TABLE
+══════════════════════════════════════════════════════ */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0 2rem;
+  font-size: 0.88rem;
+}
+
+.data-table thead th {
+  background: var(--bg-3);
+  color: var(--gold);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.85rem 1rem;
+  text-align: left;
+  border-bottom: 2px solid rgba(255, 190, 46, 0.4);
+}
+
+.data-table tbody tr {
+  border-bottom: 1px solid var(--glass-b);
+  transition: background var(--t-s);
+}
+
+.data-table tbody tr:last-child { border-bottom: none; }
+.data-table tbody tr:hover { background: var(--glass); }
+
+.data-table tbody td {
+  padding: 0.85rem 1rem;
+  color: var(--text-2);
+  vertical-align: top;
+  line-height: 1.6;
+}
+
+.data-table tbody td:first-child {
+  color: var(--white);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+@media (max-width: 680px) {
+  .data-table { font-size: 0.8rem; }
+  .data-table thead th,
+  .data-table tbody td { padding: 0.6rem 0.6rem; }
+  .data-table tbody td:first-child { white-space: normal; }
+}
+
+/* ══════════════════════════════════════════════════════
    FOOTER
 ══════════════════════════════════════════════════════ */
 footer {
