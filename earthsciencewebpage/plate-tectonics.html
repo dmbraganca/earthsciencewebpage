@@ -6,7 +6,7 @@
   <title>Plate Tectonics — South Africa Earth Science</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
+<body class="page-tectonics">
 
   <header class="site-header">
     <div class="header-inner">
@@ -154,6 +154,11 @@
 
   </main>
 
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close">&times;</button>
+    <img id="lightbox-img" src="" alt="" />
+  </div>
+
   <footer>
     <div class="footer-stripe"></div>
     <div class="footer-inner">
@@ -161,5 +166,25 @@
     </div>
   </footer>
 
+  <script>
+    const lightbox    = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    document.querySelectorAll('.map-figure, .map-featured').forEach(fig => {
+      fig.addEventListener('click', () => {
+        const img = fig.querySelector('img');
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightbox.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', e => { if (e.target !== lightboxImg) closeLightbox(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+  </script>
 </body>
 </html>

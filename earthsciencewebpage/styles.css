@@ -917,6 +917,166 @@ blockquote cite {
 }
 
 /* ══════════════════════════════════════════════════════
+   PAGE THEMES — unique color identity per page
+══════════════════════════════════════════════════════ */
+
+/* ── About — emerald green, personal ── */
+body.page-about {
+  background-image:
+    radial-gradient(ellipse 80% 50% at 10% 0%, rgba(0, 217, 126, 0.22) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 90% 100%, rgba(0, 122, 77, 0.18) 0%, transparent 55%);
+}
+.page-about .page-banner::before {
+  background:
+    radial-gradient(ellipse 70% 90% at 20% 50%, rgba(0, 217, 126, 0.15) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 70% at 80% 50%, rgba(0, 217, 126, 0.07) 0%, transparent 60%);
+}
+.page-about h2::after { background: var(--green); }
+
+/* ── Maps — sapphire blue, exploration ── */
+body.page-maps {
+  background-image:
+    radial-gradient(ellipse 80% 50% at 10% 0%, rgba(0, 35, 149, 0.30) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 90% 100%, rgba(91, 130, 255, 0.20) 0%, transparent 55%);
+}
+.page-maps .page-banner::before {
+  background:
+    radial-gradient(ellipse 60% 80% at 15% 50%, rgba(91, 130, 255, 0.18) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 80% at 85% 50%, rgba(0, 35, 149, 0.14) 0%, transparent 60%);
+}
+.page-maps .page-banner::after { background: var(--blue); }
+.page-maps h2::after { background: var(--blue); }
+
+/* ── Plate Tectonics — gold + red, volcanic/geological ── */
+body.page-tectonics {
+  background-image:
+    radial-gradient(ellipse 80% 50% at 10% 0%, rgba(255, 190, 46, 0.17) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 90% 100%, rgba(255, 79, 71, 0.14) 0%, transparent 55%);
+}
+.page-tectonics .page-banner::before {
+  background:
+    radial-gradient(ellipse 60% 80% at 15% 50%, rgba(255, 190, 46, 0.15) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 80% at 85% 50%, rgba(255, 79, 71, 0.12) 0%, transparent 60%);
+}
+.page-tectonics .page-banner::after { background: linear-gradient(90deg, var(--gold), var(--red)); }
+.page-tectonics h2::after { background: linear-gradient(90deg, var(--gold), var(--red)); }
+.page-tectonics .stat-value { color: var(--gold); }
+
+/* ── Weathering — crimson, erosion/earth ── */
+body.page-weathering {
+  background-image:
+    radial-gradient(ellipse 80% 50% at 10% 0%, rgba(255, 79, 71, 0.18) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 90% 100%, rgba(255, 190, 46, 0.13) 0%, transparent 55%);
+}
+.page-weathering .page-banner::before {
+  background:
+    radial-gradient(ellipse 60% 80% at 15% 50%, rgba(255, 79, 71, 0.15) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 80% at 85% 50%, rgba(255, 190, 46, 0.10) 0%, transparent 60%);
+}
+.page-weathering .page-banner::after { background: linear-gradient(90deg, var(--red), var(--gold)); }
+.page-weathering h2::after { background: var(--red); }
+.page-weathering .stat-value { color: var(--red); }
+
+/* ── Fluvial — ocean blue, water/trade ── */
+body.page-fluvial {
+  background-image:
+    radial-gradient(ellipse 80% 50% at 10% 0%, rgba(91, 130, 255, 0.24) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 90% 100%, rgba(0, 217, 126, 0.14) 0%, transparent 55%);
+}
+.page-fluvial .page-banner::before {
+  background:
+    radial-gradient(ellipse 60% 80% at 15% 50%, rgba(91, 130, 255, 0.20) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 80% at 85% 50%, rgba(0, 217, 126, 0.10) 0%, transparent 60%);
+}
+.page-fluvial .page-banner::after { background: linear-gradient(90deg, var(--blue), var(--green)); }
+.page-fluvial h2::after { background: var(--blue); }
+.page-fluvial .stat-value { color: var(--blue); }
+
+/* ── Climate — forest green, biomes/nature ── */
+body.page-climate {
+  background-image:
+    radial-gradient(ellipse 80% 50% at 10% 0%, rgba(0, 122, 77, 0.28) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 90% 100%, rgba(0, 217, 126, 0.18) 0%, transparent 55%);
+}
+.page-climate .page-banner::before {
+  background:
+    radial-gradient(ellipse 70% 90% at 20% 50%, rgba(0, 217, 126, 0.18) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 70% at 80% 50%, rgba(0, 122, 77, 0.13) 0%, transparent 60%);
+}
+.page-climate .page-banner::after { background: var(--green); }
+.page-climate h2::after { background: var(--green); }
+
+/* ── References — slate, academic/minimal ── */
+body.page-references {
+  background-image:
+    radial-gradient(ellipse 80% 50% at 10% 0%, rgba(81, 100, 128, 0.18) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 90% 100%, rgba(81, 100, 128, 0.12) 0%, transparent 55%);
+}
+.page-references .page-banner::before {
+  background: radial-gradient(ellipse 50% 60% at 50% 50%, rgba(255, 255, 255, 0.03) 0%, transparent 60%);
+}
+.page-references .page-banner::after { background: var(--muted); }
+.page-references h2::after { background: var(--muted); }
+
+/* ── About page components ── */
+.profile-card {
+  background: var(--glass);
+  border: 1px solid var(--glass-b);
+  border-left: 3px solid var(--green);
+  border-radius: 0 var(--r) var(--r) 0;
+  padding: 1.5rem 1.75rem;
+  margin: 1.5rem 0 2rem;
+  display: grid;
+  gap: 0.55rem;
+}
+.profile-line {
+  font-size: 0.9rem;
+  color: var(--text-2);
+}
+.profile-label {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--green);
+  display: inline-block;
+  width: 5.5rem;
+  margin-right: 0.25rem;
+}
+.about-links {
+  list-style: none;
+  padding: 0;
+  margin: 1.25rem 0 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.7rem;
+}
+.about-links li a {
+  display: block;
+  padding: 1rem 1.25rem;
+  background: var(--glass);
+  border: 1px solid var(--glass-b);
+  border-left: 3px solid transparent;
+  border-radius: 0 var(--r) var(--r) 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-2);
+  text-decoration: none;
+  transition: all var(--t);
+}
+.about-links li a:hover {
+  border-color: rgba(0, 217, 126, 0.15);
+  border-left-color: var(--green);
+  background: var(--glass-2);
+  color: var(--white);
+  transform: translateX(4px);
+  text-decoration: none;
+}
+@media (max-width: 680px) {
+  .about-links { grid-template-columns: 1fr; }
+}
+
+/* ══════════════════════════════════════════════════════
    FOOTER
 ══════════════════════════════════════════════════════ */
 footer {
